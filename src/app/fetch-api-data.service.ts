@@ -9,7 +9,7 @@ import {
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { threadId } from 'node:worker_threads';
+// import { threadId } from 'node:worker_threads';
 
 //Declaring the API url that will provide data for the client app
 const apiURL = 'https://movietron-09120.herokuapp.com/';
