@@ -1,6 +1,9 @@
 <mat-card>
+  <button mat-icon-button color="primary" [mat-dialog-close]="true">
+    close
+  </button>
   <mat-card-header>
-    <mat-card-title>Register to enter Movietron! :)</mat-card-title>
+    <mat-card-title>Update Profile</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form>
@@ -8,8 +11,8 @@
         <input
           matInput
           [(ngModel)]="userData.Username"
-          placeholder="Username"
           type="text"
+          placeholder="Username"
           name="Username"
           required
         />
@@ -28,8 +31,8 @@
         <input
           matInput
           [(ngModel)]="userData.Email"
-          placeholder="Email"
           type="email"
+          placeholder="Email"
           name="Email"
           required
         />
@@ -38,8 +41,8 @@
         <input
           matInput
           [(ngModel)]="userData.Birthday"
-          placeholder="Birthday"
           type="date"
+          placeholder="Birthday"
           name="Birthday"
           required
         />
@@ -47,8 +50,8 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="registerUser()" color="primary">
-      Register
+    <button mat-raised-button (click)="editUser()" color="primary">
+      Update
     </button>
   </mat-card-actions>
 </mat-card>

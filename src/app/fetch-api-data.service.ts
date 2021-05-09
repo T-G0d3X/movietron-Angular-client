@@ -82,11 +82,10 @@ export class GetAllMoviesService {
 
   getAllMovies(): Observable<any> {
     const token = localStorage.getItem('token');
-
     return this.http
       .get(apiURL + 'movies', {
         headers: new HttpHeaders({
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
@@ -122,7 +121,7 @@ export class GetOneMovieService {
     return this.http
       .get(apiURL + 'movies/:Title', {
         headers: new HttpHeaders({
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
@@ -158,7 +157,7 @@ export class GetDirectorService {
     return this.http
       .get(apiURL + 'movies/directors/:Name', {
         headers: new HttpHeaders({
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
@@ -194,7 +193,7 @@ export class GetGenreService {
     return this.http
       .get(apiURL + 'movies/genres/:Name', {
         headers: new HttpHeaders({
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
@@ -231,7 +230,7 @@ export class GetUserService {
     return this.http
       .get(apiURL + `users/${user}`, {
         headers: new HttpHeaders({
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
@@ -261,14 +260,14 @@ export class GetUserService {
 export class GetFavouriteMoviesService {
   constructor(private http: HttpClient) {}
 
-  getFavMovies(id: string): Observable<any> {
+  getUserFavorite(id: string): Observable<any> {
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');
 
     return this.http
       .get(apiURL + `users/${user}/Movies/${id}`, {
         headers: new HttpHeaders({
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
@@ -303,9 +302,9 @@ export class AddFavoriteMovieService {
     const user = localStorage.getItem('user');
 
     return this.http
-      .post(apiURL + `users/${user}/Movies/${id}`, {
+      .post(apiURL + `users/${user}/Movies/${id}`, id, {
         headers: new HttpHeaders({
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
@@ -342,7 +341,7 @@ export class EditUserService {
     return this.http
       .put(apiURL + `users/${user}`, userDetails, {
         headers: new HttpHeaders({
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
@@ -379,7 +378,7 @@ export class DeleteUserService {
     return this.http
       .delete(apiURL + `users/${user}`, {
         headers: new HttpHeaders({
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
@@ -398,7 +397,7 @@ export class DeleteUserService {
         `Error Status code ${error.status}, ` + `Error body is: ${error.error}`
       );
     }
-    return throwError('Something bad happend: please try again later.');
+    // return throwError('Something bad happend: please try again later.');
   }
 }
 
@@ -416,7 +415,7 @@ export class DeleteFavoriteMovieService {
     return this.http
       .delete(apiURL + `users/${user}/Movies/${id}`, {
         headers: new HttpHeaders({
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));

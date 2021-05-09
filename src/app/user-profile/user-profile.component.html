@@ -1,0 +1,53 @@
+<app-nav></app-nav>
+<div>
+  <div>
+    <mat-card style="margin-top: 30px">
+      <mat-card-header>
+        <mat-card-title style="color: purple; font-size: 30px"
+          >Your Movietron Profile:</mat-card-title
+        >
+      </mat-card-header>
+      <mat-card-content
+        ><strong>Username:</strong> {{ user.Username }}
+      </mat-card-content>
+      <mat-card-content
+        ><strong>Email:</strong> {{ user.Email }}
+      </mat-card-content>
+      <mat-card-content
+        ><strong>Birthday:</strong> {{ user.Birthday }}
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="basic" (click)="profileUpdateDialog()">
+          Update Profile
+        </button>
+        <button mat-raised-button color="warn" (click)="deleteUser()">
+          Delete Profile
+        </button>
+      </mat-card-actions>
+    </mat-card>
+    <h1 style="margin-top: 50px; font-weight: bold">Your Favorite Movies:</h1>
+    <mat-card
+      *ngFor="let favorite of favoriteMovies"
+      style="background-color: blueviolet; color: white"
+    >
+      <mat-card-header>
+        <mat-card-title>{{ favorite.Title }}</mat-card-title>
+        <mat-card-subtitle style="color: lightgray"
+          >Directed by: {{ favorite.Director.Name }}</mat-card-subtitle
+        >
+      </mat-card-header>
+      <img src="{{ favorite.ImagePath }}" alt="{{ favorite.Title }}" />
+      <div>
+        <mat-card-actions>
+          <button
+            mat-button
+            color="basic"
+            (click)="removeFavMovie(favorite._id, favorite.Title)"
+          >
+            Remove Favorite
+          </button>
+        </mat-card-actions>
+      </div>
+    </mat-card>
+  </div>
+</div>
