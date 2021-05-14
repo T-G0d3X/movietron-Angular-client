@@ -3,6 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+/**
+ * The NavComponent provides the navigtation for the app with links to profile page, sign out
+ */
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -13,6 +17,9 @@ export class NavComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * Logs the user out, removes their data from local storage, and returns them to login screen
+   */
   logOut(): void {
     localStorage.clear;
     this.router.navigate(['welcome']);

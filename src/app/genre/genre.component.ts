@@ -1,6 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
+/**
+ * GenreComponenet shows description for each genre of selected movie
+ */
+
 @Component({
   selector: 'app-genre',
   templateUrl: './genre.component.html',

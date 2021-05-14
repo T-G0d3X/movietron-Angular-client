@@ -6,6 +6,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { UserLoginFormComponent } from '../user-login-form/user-login-form.component';
 //////////////////////////////////////////////////
 
+/**
+ * WelcomePageComponent is the first view when user arrives, it allows users to sign in or for new users to register
+ */
+
 @Component({
   selector: 'app-welcome-page',
   templateUrl: './welcome-page.component.html',

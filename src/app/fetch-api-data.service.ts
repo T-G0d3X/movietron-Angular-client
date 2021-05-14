@@ -437,3 +437,7 @@ export class DeleteFavoriteMovieService {
     return throwError('Something bad happend: please try again later.');
   }
 }
+
+export class FetchApiDataService {
+  constructor() {}
+}

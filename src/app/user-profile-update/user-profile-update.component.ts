@@ -4,6 +4,10 @@ import { EditUserService } from '../fetch-api-data.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+/**
+ * UserProfileUpdateComponent allows users to edit their profile information
+ */
+
 @Component({
   selector: 'app-user-profile-update',
   templateUrl: './user-profile-update.component.html',
@@ -20,6 +24,9 @@ export class UserProfileUpdateComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * Sends updated user information to the database and refreshes the page so the user can check updated information
+   */
   editUser(): void {
     this.fetchEditUserData.editUser(this.userData).subscribe(
       (res) => {
